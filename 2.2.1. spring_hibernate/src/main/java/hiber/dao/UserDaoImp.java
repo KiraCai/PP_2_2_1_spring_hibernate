@@ -1,12 +1,12 @@
 package hiber.dao;
 
 import hiber.model.User;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.TypedQuery;
-//import jakarta.persistence.TypedQuery;
 import java.util.List;
 
 @Repository
@@ -18,6 +18,14 @@ public class UserDaoImp implements UserDao {
    @Override
    public void add(User user) {
       sessionFactory.getCurrentSession().save(user);
+   }
+
+   @Override
+   public User getUserById(Long id) {
+      Session session = sessionFactory.getCurrentSession();
+      // Используем session.get() для получения пользователя по его ID
+      User user = session.get(User.class, id);
+      return user;
    }
 
    @Override
