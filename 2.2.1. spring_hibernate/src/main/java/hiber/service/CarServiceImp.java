@@ -21,11 +21,6 @@ public class CarServiceImp implements CarService {
         carDao.add(car);
     }
 
-    @Transactional
-    @Override
-    public void setUser(Car car, User user) {
-        carDao.setUser(car, user);
-    }
 
     @Transactional(readOnly = true)
     @Override

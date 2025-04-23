@@ -26,9 +26,11 @@ public class MainApp {
       carService.add(new Car("audi", 89));
       carService.add(new Car("audi", 0));
       User user = new User("User1111111111111111", "Lastname1", "user1@mail.ru");
-      userService.add(user);  // Сначала добавляем пользователя в базу
-      Car car = new Car("BMW", 5); // Создаем машину
-      carService.setUser(car, user);
+      Car car = new Car("BMW", 5);
+      userService.add(user);
+      carService.add(car);
+      user.setCar(car);
+
 
 
       List<User> users = userService.listUsers();

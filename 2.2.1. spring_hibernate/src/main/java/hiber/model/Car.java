@@ -6,23 +6,17 @@ import javax.persistence.*;
 @Table(name="car")
 public class Car {
 
-    /*@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;*/
     @Id
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
     @Column(name="model")
     String model;
+
     @Column(name="series")
     Integer series;
 
-    @OneToOne
-    @MapsId
-    @JoinColumn(name = "id")
-    private User user;
 
     public Car() {}
     public Car(String model, int series) {
@@ -50,11 +44,4 @@ public class Car {
         this.series = series;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
 }

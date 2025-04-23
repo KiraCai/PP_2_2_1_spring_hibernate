@@ -1,5 +1,6 @@
 package hiber.dao;
 
+import hiber.model.Car;
 import hiber.model.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -21,11 +22,9 @@ public class UserDaoImp implements UserDao {
    }
 
    @Override
-   public User getUserById(Long id) {
-      Session session = sessionFactory.getCurrentSession();
-      // Используем session.get() для получения пользователя по его ID
-      User user = session.get(User.class, id);
-      return user;
+   public void setCar(Car car) {
+      car.getId();
+      sessionFactory.getCurrentSession().update(car);
    }
 
    @Override
