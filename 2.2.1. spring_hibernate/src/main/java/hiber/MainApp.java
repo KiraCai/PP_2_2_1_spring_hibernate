@@ -27,20 +27,23 @@ public class MainApp {
       carService.add(new Car("audi", 0));
       User user = new User("User1111111111111111", "Lastname1", "user1@mail.ru");
       Car car = new Car("BMW", 5);
-      userService.add(user);
+      //userService.add(user);
       carService.add(car);
+      System.out.println("Хе");
       user.setCar(car);
+      System.out.println("Хе2");
+      userService.add(user);
 
 
 
       List<User> users = userService.listUsers();
-      for (User userr : users) {
+      /*for (User userr : users) {
          System.out.println("Id = "+userr.getId());
          System.out.println("First Name = "+userr.getFirstName());
          System.out.println("Last Name = "+userr.getLastName());
          System.out.println("Email = "+userr.getEmail());
          System.out.println();
-      }
+      }*/
 
       context.close();
    }
